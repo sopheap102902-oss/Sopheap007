@@ -3,29 +3,39 @@ name: Android CI
 on:
   push:
     branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-    
+    # ១. ទាញយកកូដពី Repository របស់អ្នក
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    # ២. ដំឡើង Java JDK 17 (ជំនាន់ដែលស្ថិតស្ថេរបំផុតសម្រាប់ Android ថ្មីៗ)
     - name: set up JDK 17
-      uses: actions/setup-java@v3
+      uses: actions/setup-java@v4
       with:
         java-version: '17'
         distribution: 'temurin'
         cache: gradle
 
+    # ៣. បើកសិទ្ធិឱ្យឯកសារ gradlew អាចដំណើរការបាន
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
 
+    # ៤. ចាប់ផ្ដើម Build APK (Debug Version)
     - name: Build with Gradle
       run: ./gradlew assembleDebug
 
-    - name: Upload APK
-      uses: actions/upload-artifact@v3
+    # ៥. បញ្ចេញឯកសារ APK ឱ្យយើងទាញយក (ប្រើ v4 តាមការណែនាំរបស់ GitHub)
+    - name: Upload APK Artifact
+      uses: actions/upload-artifact@v4
       with:
-        name: my-app-apk
+        name: MyAndroidApp-Debug
         path: app/build/outputs/apk/debug/*.apk
+        retention-days: 7
+
