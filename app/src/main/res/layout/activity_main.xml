@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:gravity="center_horizontal"
+    android:background="#FFFFFF">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ជ្រើសរើសភាសា / Select Language"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="20dp"
+        android:textColor="#000000"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginBottom="40dp">
+
+        <Button
+            android:id="@+id/btnKh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ខ្មែរ"
+            android:backgroundTint="#0000FF"/>
+
+        <Button
+            android:id="@+id/btnEn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="English"
+            android:layout_marginLeft="10dp"
+            android:backgroundTint="#0000FF"/>
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/etPhone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="លេខទូរសព្ទ Telegram"
+        android:inputType="phone"
+        android:padding="15dp"
+        android:background="@android:drawable/editbox_background"/>
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ផ្ញើលេខកូដ OTP"
+        android:layout_marginTop="15dp"
+        android:backgroundTint="#0000FF"
+        android:textColor="#FFFFFF"/>
+
+</LinearLayout>
